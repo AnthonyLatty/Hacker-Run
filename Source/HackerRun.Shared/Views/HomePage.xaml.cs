@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using HackerRun.Shared.ViewModels;
+using Xamarin.Forms;
 
 namespace HackerRun.Shared.Views
 {
@@ -7,6 +8,8 @@ namespace HackerRun.Shared.Views
         public HomePage()
         {
             InitializeComponent();
+
+            BindingContext = new HomePageViewModel();
         }
     }
 }

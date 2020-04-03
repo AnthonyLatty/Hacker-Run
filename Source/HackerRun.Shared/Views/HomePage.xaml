@@ -39,7 +39,7 @@
             <Label
                 FontSize="100"
                 HorizontalTextAlignment="Center"
-                Text="30:00" />
+                Text="{Binding TimerText}" />
         </StackLayout>
 
         <!--  Row 2  -->
@@ -50,10 +50,11 @@
                 HorizontalOptions="FillAndExpand"
                 Source="turtle" />
             <Button
+                Command="{Binding StartGameCommand}"
                 CornerRadius="0"
                 HeightRequest="80"
                 Style="{StaticResource Btn-Primary}"
-                Text="START"
+                Text="{Binding ButtonText}"
                 VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>
