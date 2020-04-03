@@ -59,12 +59,14 @@ namespace HackerRun.Shared.ViewModels
         private void TimerElapsedEvent(object sender, ElapsedEventArgs e)
         {
             _countseconds--;
-            DisplayTimeFormat();
+            TimerText = DisplayTimeFormat();
             if (_countseconds == 0)
             {
                 _timer.Stop();
+                ButtonText = "Timer Ended";
+                _gameState = GameState.ENDED;
                 RunTimerCountDown();
-                _timer.Start();
+                //_timer.Start();
             }
         }
 
@@ -81,14 +83,14 @@ namespace HackerRun.Shared.ViewModels
             {
                 _timer.Start();
                 _timerState = TimerState.RUNNING;
-                ButtonText = "START";
+                ButtonText = "STOP";
             }
             else
             {
                 _timer.Stop();
                 _timerState = TimerState.STOPPED;
                 RunTimerCountDown();
-                ButtonText = "STOP";
+                ButtonText = "START";
                 TimerText = DisplayTimeFormat();
             }
         }
