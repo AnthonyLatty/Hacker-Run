@@ -11,7 +11,7 @@ namespace HackerRun.Droid
         (Label = "Hacker Run",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
-        MainLauncher = true,
+        MainLauncher = false,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : FormsAppCompatActivity
     {
