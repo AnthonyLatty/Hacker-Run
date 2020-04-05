@@ -11,7 +11,8 @@ namespace HackerRun.Droid
         (Label = "Hacker Run",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
-        MainLauncher = true,
+        MainLauncher = false,
+        NoHistory = true,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : FormsAppCompatActivity
     {
@@ -24,6 +25,8 @@ namespace HackerRun.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
 
@@ -32,6 +35,12 @@ namespace HackerRun.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        // This prevents a user from being able to hit the back button
+        public override void OnBackPressed()
+        {
+            return;
         }
     }
 }
