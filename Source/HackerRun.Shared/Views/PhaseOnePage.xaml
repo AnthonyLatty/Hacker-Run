@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
-    xmlns:control="clr-namespace:HackerRun.Shared.Controls"
+    xmlns:control="clr-namespace:HackerRun.Shared.Controls" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
     BackgroundColor="{StaticResource WhiteColor}"
     NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False"
@@ -36,6 +36,8 @@
 
 
             <!--  Level 1 cntent here  -->
+
+            <material:MaterialRadioButtonGroup x:Name="radioButtonGroup" Choices="{Binding Options}"   />
 
 
 
