@@ -61,6 +61,9 @@
     <PackageReference Include="Corcav.Behaviors">
       <Version>2.3.7</Version>
     </PackageReference>
+    <PackageReference Include="XF.Material">
+      <Version>1.5.8</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

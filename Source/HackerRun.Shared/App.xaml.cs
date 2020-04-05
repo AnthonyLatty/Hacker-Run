@@ -8,6 +8,8 @@ namespace HackerRun.Shared
         public App()
         {
             InitializeComponent();
+            // Initialize Material plugin
+            XF.Material.Forms.Material.Init(this);
 
             MainPage = new NavigationPage(new HomePage());
         }

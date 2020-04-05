@@ -26,6 +26,8 @@ namespace HackerRun.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
+            // Initialize Material plugin
+            XF.Material.Droid.Material.Init(this, savedInstanceState);
 
             LoadApplication(new App());
         }
