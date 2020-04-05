@@ -86,6 +86,9 @@
     <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>4.5.0.530</Version>
     </PackageReference>
+    <PackageReference Include="Corcav.Behaviors">
+      <Version>2.3.7</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HackerRun.Shared\HackerRun.Shared.csproj">

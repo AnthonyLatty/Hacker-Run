@@ -54,7 +54,7 @@
                 CornerRadius="0"
                 HeightRequest="80"
                 Style="{StaticResource Btn-Primary}"
-                Text="{Binding ButtonText}"
+                Text="START"
                 VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>

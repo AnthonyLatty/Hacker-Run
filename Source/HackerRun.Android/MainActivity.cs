@@ -12,6 +12,7 @@ namespace HackerRun.Droid
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = false,
+        NoHistory = true,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : FormsAppCompatActivity
     {
@@ -34,6 +35,12 @@ namespace HackerRun.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        // This prevents a user from being able to hit the back button
+        public override void OnBackPressed()
+        {
+            return;
         }
     }
 }

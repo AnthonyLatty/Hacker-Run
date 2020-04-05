@@ -22,6 +22,8 @@ namespace HackerRun.iOS
         {
             Xamarin.Forms.Forms.Init();
             Xamarin.Forms.FormsMaterial.Init();
+            //Added to prevent iOS linker to strip behaviors assembly out of deployed package.
+            Corcav.Behaviors.Infrastructure.Init();
 
             LoadApplication(new App());
 
