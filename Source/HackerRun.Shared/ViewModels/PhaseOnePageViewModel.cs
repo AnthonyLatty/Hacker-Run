@@ -1,5 +1,6 @@
 ﻿using HackerRun.Shared.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
@@ -8,7 +9,7 @@ namespace HackerRun.Shared.ViewModels
 {
     public class PhaseOnePageViewModel : BaseViewModel
     {
-        public ObservableCollection<EmailOptions> Options { get; set; }
+        public List<string> Options { get; set; }
 
         public Command AppearingCommand => new Command(ExecuteAppearingCommand);
         public Command DisappearingCommand => new Command(ExecuteDisappearingCommand);
@@ -16,37 +17,19 @@ namespace HackerRun.Shared.ViewModels
         public PhaseOnePageViewModel(INavigation navigation)
         {
             Navigation = navigation;
-            populateEmail();
+
+            PopulateOptions();
         }
 
-        private void populateEmail()
+        private void PopulateOptions()
         {
-            Options = new ObservableCollection<EmailOptions>()
+            Options = new List<string>()
             {
-                new EmailOptions
-                {
-                    OptionTitle="The message is sent from a public email domain"
-                },
-
-                new EmailOptions
-                {
-                    OptionTitle="The domain name is misspelled"
-                },
-
-                new EmailOptions
-                {
-                    OptionTitle="The email is poorly written"
-                },
-
-                new EmailOptions
-                {
-                    OptionTitle="It includes suspicious attachments or links"
-                },
-
-                new EmailOptions
-                {
-                    OptionTitle="All of the above( correct answer)"
-                }
+                "A. The message is sent from a public email domain",
+                "B. The domain name is misspelled",
+                "C. The email is poorly written",
+                "D. It includes suspicious attachments or links",
+                "E. All of the above( correct answer)"
             };
         }
 
