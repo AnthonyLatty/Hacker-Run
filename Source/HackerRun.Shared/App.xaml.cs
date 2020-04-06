@@ -11,7 +11,7 @@ namespace HackerRun.Shared
             // Initialize Material plugin
             XF.Material.Forms.Material.Init(this);
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new IntroPage());
         }
 
         protected override void OnStart()

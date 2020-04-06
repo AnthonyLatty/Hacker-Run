@@ -33,6 +33,39 @@ namespace HackerRun.Shared.ViewModels
         }
 
         #region Properties
+        bool _isLevelOneVisible = true;
+        public bool IsLevelOneVisible
+        {
+            get => _isLevelOneVisible;
+            set
+            {
+                _isLevelOneVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        bool _isLevelTwoVisible = false;
+        public bool IsLevelTwoVisible
+        {
+            get => _isLevelTwoVisible;
+            set
+            {
+                _isLevelTwoVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        bool _isLevelThreeVisible = false;
+        public bool IsLevelThreeVisible
+        {
+            get => _isLevelThreeVisible;
+            set
+            {
+                _isLevelThreeVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         string _timerText;
         public string TimerText
         {

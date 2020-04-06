@@ -3,13 +3,12 @@ using Xamarin.Forms;
 
 namespace HackerRun.Shared.Views
 {
-    public partial class HomePage : ContentPage
+    public partial class GameboardPage : ContentPage
     {
-        public HomePage()
+        public GameboardPage()
         {
             InitializeComponent();
-
-            BindingContext = new HomePageViewModel(Navigation);
+            BindingContext = new GameboardPageViewModel(Navigation);
         }
     }
 }
