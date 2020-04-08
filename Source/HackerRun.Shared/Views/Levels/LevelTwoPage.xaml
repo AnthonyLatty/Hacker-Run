@@ -24,20 +24,29 @@
 
         <!--  Row 1  -->
         <StackLayout Grid.Row="1">
-            <Label
-                FontAttributes="Bold"
-                FontFamily="{StaticResource HeaderFont}"
-                FontSize="30"
-                HorizontalTextAlignment="Center"
-                Text="Level 2"
-                VerticalTextAlignment="Center" />
-            <!--  Level 2 content here  -->
+            <StackLayout>
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                    <StackLayout
+                        Margin="10"
+                        HorizontalOptions="CenterAndExpand"
+                        Spacing="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="{StaticResource HeaderFont}"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="Level 2"
+                            VerticalTextAlignment="Center" />
+                        <!--  Level 2 content here  -->
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
             <Button
                 Command="{Binding NavigateToLevelThreeCommand}"
                 CornerRadius="0"
-                HeightRequest="80"
+                HeightRequest="60"
                 Style="{StaticResource Btn-Secondary}"
-                Text="NEXT"
+                Text="Advance to next level"
                 VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>

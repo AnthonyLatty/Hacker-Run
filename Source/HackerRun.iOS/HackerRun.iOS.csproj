@@ -92,6 +92,9 @@
     <PackageReference Include="XF.Material">
       <Version>1.5.8</Version>
     </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.442</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HackerRun.Shared\HackerRun.Shared.csproj">

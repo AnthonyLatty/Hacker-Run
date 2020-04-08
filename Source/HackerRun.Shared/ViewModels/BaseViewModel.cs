@@ -17,11 +17,21 @@ namespace HackerRun.Shared.ViewModels
         STOPPED
     }
 
+    public enum GameplayLevelStatus
+    {
+        Waiting,
+        LevelOneCompleted,
+        LevelTwoCompleted,
+        LevelThreeCompleted
+    }
+
     public class BaseViewModel : INotifyPropertyChanged
     {
         // Navigation property inherited in view models
         public INavigation Navigation { get; set; }
 
+        public int delayTime = 5;
+        public GameplayLevelStatus _gameplayLevelStatus = GameplayLevelStatus.Waiting;
         public GameState _gameState = GameState.PLAYING;
         public TimerState _timerState = TimerState.STOPPED;
         public Timer _timer = new Timer();
@@ -29,7 +39,7 @@ namespace HackerRun.Shared.ViewModels
         public BaseViewModel()
         {
             // Adds interval to seconds
-            _timer.Interval = 1000;
+            //_timer.Interval = 1000;
             _timer.Elapsed += TimerElapsedEvent;
         }
 
@@ -41,6 +51,17 @@ namespace HackerRun.Shared.ViewModels
             set
             {
                 _countSeconds = value;
+                OnPropertyChanged();
+            }
+        }
+
+        int _updatedTimeWithDelay;
+        public int UpdatedTimeWithDelay
+        {
+            get => _updatedTimeWithDelay;
+            set
+            {
+                _updatedTimeWithDelay = value;
                 OnPropertyChanged();
             }
         }
@@ -79,6 +100,12 @@ namespace HackerRun.Shared.ViewModels
                 _gameState = GameState.ENDED;
                 RunTimerCountDown();
             }
+            else if (_gameplayLevelStatus == GameplayLevelStatus.LevelThreeCompleted)
+            {
+                _timer.Stop();
+                _gameState = GameState.ENDED;
+                RunTimerCountDown();
+            }
         }
 
         public void RunTimerCountDown()
@@ -89,6 +116,18 @@ namespace HackerRun.Shared.ViewModels
                     CountSeconds--;
                     break;
                 case GameState.ENDED:
+                    switch (_gameplayLevelStatus)
+                    {
+                        case GameplayLevelStatus.LevelOneCompleted:
+                            // Display Game over page
+                            break;
+                        case GameplayLevelStatus.LevelTwoCompleted:
+                            // Display Game over page
+                            break;
+                        case GameplayLevelStatus.LevelThreeCompleted:
+                            // Display rewards page
+                            break;
+                    }
                     break;
                 default:
                     break;
