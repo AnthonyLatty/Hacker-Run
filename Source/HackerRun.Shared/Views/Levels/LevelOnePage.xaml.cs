@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace HackerRun.Shared.Views.Levels
 {
-    public partial class LevelOnePage : ContentView
+    public partial class LevelOnePage : ContentPage
     {
         public LevelOnePage()
         {

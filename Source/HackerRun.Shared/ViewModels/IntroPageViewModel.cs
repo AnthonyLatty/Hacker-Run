@@ -1,4 +1,4 @@
-﻿using HackerRun.Shared.Views;
+﻿using HackerRun.Shared.Views.Levels;
 using Xamarin.Forms;
 
 namespace HackerRun.Shared.ViewModels
@@ -14,7 +14,7 @@ namespace HackerRun.Shared.ViewModels
 
         private void ExecuteStartGameTimer()
         {
-            Navigation.PushAsync(new GameboardPage());
+            Navigation.PushAsync(new LevelOnePage());
         }
     }
 }
