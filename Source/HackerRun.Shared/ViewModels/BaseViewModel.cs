@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Timers;
+using HackerRun.Shared.Views;
 using Xamarin.Forms;
 
 namespace HackerRun.Shared.ViewModels
@@ -17,11 +18,21 @@ namespace HackerRun.Shared.ViewModels
         STOPPED
     }
 
+    public enum GameplayLevelStatus
+    {
+        Waiting,
+        LevelOneCompleted,
+        LevelTwoCompleted,
+        LevelThreeCompleted
+    }
+
     public class BaseViewModel : INotifyPropertyChanged
     {
         // Navigation property inherited in view models
         public INavigation Navigation { get; set; }
 
+        public int delayTime = 5;
+        public GameplayLevelStatus _gameplayLevelStatus = GameplayLevelStatus.Waiting;
         public GameState _gameState = GameState.PLAYING;
         public TimerState _timerState = TimerState.STOPPED;
         public Timer _timer = new Timer();
@@ -41,6 +52,17 @@ namespace HackerRun.Shared.ViewModels
             set
             {
                 _countSeconds = value;
+                OnPropertyChanged();
+            }
+        }
+
+        int _updatedTimeWithDelay;
+        public int UpdatedTimeWithDelay
+        {
+            get => _updatedTimeWithDelay;
+            set
+            {
+                _updatedTimeWithDelay = value;
                 OnPropertyChanged();
             }
         }
@@ -79,16 +101,48 @@ namespace HackerRun.Shared.ViewModels
                 _gameState = GameState.ENDED;
                 RunTimerCountDown();
             }
+            else if (_gameplayLevelStatus == GameplayLevelStatus.LevelThreeCompleted)
+            {
+                _timer.Stop();
+                _gameState = GameState.ENDED;
+                RunTimerCountDown();
+            }
         }
 
         public void RunTimerCountDown()
         {
+            // Gets current MainPage type when in ViewModel
+            var currentPage = App.Current.MainPage?.GetType();
+
             switch (_gameState)
             {
                 case GameState.PLAYING:
                     CountSeconds--;
                     break;
                 case GameState.ENDED:
+                    switch (_gameplayLevelStatus)
+                    {
+                        case GameplayLevelStatus.LevelOneCompleted:
+                            // Display Game over page
+                            if (currentPage == null || currentPage != typeof(GameOverPage))
+                            {
+                                App.Current.MainPage = new GameOverPage();
+                            }
+                            break;
+                        case GameplayLevelStatus.LevelTwoCompleted:
+                            if (currentPage == null || currentPage != typeof(GameOverPage))
+                            {
+                                App.Current.MainPage = new GameOverPage();
+                            }
+                            break;
+                        case GameplayLevelStatus.LevelThreeCompleted:
+                            // Display rewards page
+                            if (currentPage == null || currentPage != typeof(RewardsPage))
+                            {
+                                App.Current.MainPage = new RewardsPage();
+                            }
+                            break;
+                    }
                     break;
                 default:
                     break;

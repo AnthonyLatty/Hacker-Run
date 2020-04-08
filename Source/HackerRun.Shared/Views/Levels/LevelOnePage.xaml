@@ -24,20 +24,77 @@
 
         <!--  Row 1  -->
         <StackLayout Grid.Row="1">
-            <Label
-                FontAttributes="Bold"
-                FontFamily="{StaticResource HeaderFont}"
-                FontSize="30"
-                HorizontalTextAlignment="Center"
-                Text="Level 1"
-                VerticalTextAlignment="Center" />
-            <!--  Level 1 content here  -->
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                <StackLayout
+                    Margin="10"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Text="Level 1"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="25"
+                        LineBreakMode="WordWrap"
+                        Text="Which of the following below is the best way to detect phishing emails?" />
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionOneOptions}">
+                        <Picker.Items>
+                            <x:String>A. The message is sent from a public email domain</x:String>
+                            <x:String>B. The domain name is misspelled</x:String>
+                            <x:String>C. The email is poorly written</x:String>
+                            <x:String>D. It includes suspicious attachments or links</x:String>
+                            <x:String>E. All of the above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="25"
+                        LineBreakMode="WordWrap"
+                        Text="Which of the following below is a great example of a secure password" />
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionTwoOptions}">
+                        <Picker.Items>
+                            <x:String>A. Deltagamma</x:String>
+                            <x:String>B. Ilovemypiano</x:String>
+                            <x:String>C. SterlingGmail20.15</x:String>
+                            <x:String>D. SterlingGmal2015</x:String>
+                            <x:String>E. None of the Above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="25"
+                        LineBreakMode="WordWrap"
+                        Text="Which of the following is the best practice of secure wifi usage in public and private space?" />
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionThreeOptions}">
+                        <Picker.Items>
+                            <x:String>A. Stick With Https</x:String>
+                            <x:String>B. Don’t Give Away Too much Information</x:String>
+                            <x:String>C. Use a VPM</x:String>
+                            <x:String>D. Use a VPN</x:String>
+                            <x:String>E. Check What you’re signing up for</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </ScrollView>
             <Button
                 Command="{Binding NavigateToLevelTwoCommand}"
                 CornerRadius="0"
-                HeightRequest="80"
+                HeightRequest="60"
                 Style="{StaticResource Btn-Secondary}"
-                Text="NEXT"
+                Text="Advance to next level"
                 VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>

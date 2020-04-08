@@ -4,6 +4,8 @@ using Android.Runtime;
 using Android.OS;
 using Xamarin.Forms.Platform.Android;
 using HackerRun.Shared;
+using Acr.UserDialogs;
+using Lottie.Forms.Droid;
 
 namespace HackerRun.Droid
 {
@@ -26,8 +28,9 @@ namespace HackerRun.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
-            // Initialize Material plugin
+            AnimationViewRenderer.Init();
             XF.Material.Droid.Material.Init(this, savedInstanceState);
+            UserDialogs.Init(this);
 
             LoadApplication(new App());
         }

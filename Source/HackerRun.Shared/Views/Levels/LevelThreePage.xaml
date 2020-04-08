@@ -32,13 +32,13 @@
                 Text="Level 3"
                 VerticalTextAlignment="Center" />
             <!--  Level 3 content here  -->
-            <!--<Button
+            <Button
                 Command="{Binding NavigateToLevelThreeCommand}"
                 CornerRadius="0"
-                HeightRequest="80"
+                HeightRequest="60"
                 Style="{StaticResource Btn-Secondary}"
-                Text="NEXT"
-                VerticalOptions="EndAndExpand" />-->
+                Text="Next"
+                VerticalOptions="EndAndExpand" />
         </StackLayout>
     </Grid>
 </ContentPage>

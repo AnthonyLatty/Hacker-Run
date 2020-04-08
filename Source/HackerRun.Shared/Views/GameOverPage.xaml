@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="HackerRun.Shared.Views.GameOverPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    BackgroundColor="{StaticResource WhiteColor}"
+    NavigationPage.HasNavigationBar="False"
+    Visual="Material">
+    <Grid RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <StackLayout Grid.Row="0" Margin="0,20,0,0">
+            <Label
+                FontAttributes="Bold"
+                FontFamily="{StaticResource HeaderFont}"
+                FontSize="60"
+                HorizontalTextAlignment="Center"
+                Text="Game Over"
+                TextColor="{StaticResource SecondaryColor}"
+                VerticalTextAlignment="Center" />
+            <Label
+                FontAttributes="Italic"
+                FontFamily="{StaticResource HeaderFont}"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Text="Better luck next time" />
+        </StackLayout>
+
+
+        <!--  Animation  -->
+        <StackLayout Grid.Row="1">
+            <StackLayout
+                Margin="0,20,0,0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <lottie:AnimationView
+                    Animation="times-up.json"
+                    HeightRequest="200"
+                    HorizontalOptions="FillAndExpand"
+                    IsPlaying="true"
+                    Loop="true"
+                    Scale="1.5"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="500" />
+            </StackLayout>
+            <Button
+                Clicked="ReturnToHome_Clicked"
+                CornerRadius="0"
+                HeightRequest="60"
+                Style="{StaticResource Btn-Secondary}"
+                Text="Try again"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

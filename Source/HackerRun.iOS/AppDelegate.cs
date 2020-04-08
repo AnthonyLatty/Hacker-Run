@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using HackerRun.Shared;
+using Lottie.Forms.iOS.Renderers;
 using UIKit;
 using Xamarin.Forms.Platform.iOS;
 
@@ -24,10 +25,10 @@ namespace HackerRun.iOS
             Xamarin.Forms.FormsMaterial.Init();
             //Added to prevent iOS linker to strip behaviors assembly out of deployed package.
             Corcav.Behaviors.Infrastructure.Init();
-            // Initialize Material plugin
             XF.Material.iOS.Material.Init();
 
             LoadApplication(new App());
+            AnimationViewRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

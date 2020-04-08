@@ -92,6 +92,12 @@
     <PackageReference Include="XF.Material">
       <Version>1.5.8</Version>
     </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.442</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>3.0.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HackerRun.Shared\HackerRun.Shared.csproj">
@@ -177,6 +183,8 @@
     <BundleResource Include="Resources\fa-regular-400.ttf" />
     <BundleResource Include="Resources\fa-solid-900.ttf" />
     <BundleResource Include="Resources\turtle.png" />
+    <BundleResource Include="Resources\times-up.json" />
+    <BundleResource Include="Resources\trophy-success.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
