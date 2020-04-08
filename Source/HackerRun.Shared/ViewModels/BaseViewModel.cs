@@ -22,17 +22,29 @@ namespace HackerRun.Shared.ViewModels
         // Navigation property inherited in view models
         public INavigation Navigation { get; set; }
 
-        private int _countseconds = 1800;
         public GameState _gameState = GameState.PLAYING;
         public TimerState _timerState = TimerState.STOPPED;
         public Timer _timer = new Timer();
 
         public BaseViewModel()
         {
+            // Adds interval to seconds
+            _timer.Interval = 1000;
             _timer.Elapsed += TimerElapsedEvent;
         }
 
         #region Properties
+        int _countSeconds;
+        public int CountSeconds
+        {
+            get => _countSeconds;
+            set
+            {
+                _countSeconds = value;
+                OnPropertyChanged();
+            }
+        }
+
         string _timerText;
         public string TimerText
         {
@@ -59,9 +71,9 @@ namespace HackerRun.Shared.ViewModels
 
         public void TimerElapsedEvent(object sender, ElapsedEventArgs e)
         {
-            _countseconds--;
+            CountSeconds--;
             TimerText = DisplayTimeFormat();
-            if (_countseconds == 0)
+            if (CountSeconds == 0)
             {
                 _timer.Stop();
                 _gameState = GameState.ENDED;
@@ -74,7 +86,7 @@ namespace HackerRun.Shared.ViewModels
             switch (_gameState)
             {
                 case GameState.PLAYING:
-                    _countseconds--;
+                    CountSeconds--;
                     break;
                 case GameState.ENDED:
                     break;
@@ -85,8 +97,8 @@ namespace HackerRun.Shared.ViewModels
 
         public string DisplayTimeFormat()
         {
-            int mins = _countseconds / 60;
-            int seconds = _countseconds - mins * 60;
+            int mins = CountSeconds / 60;
+            int seconds = CountSeconds - mins * 60;
             return string.Format("{0}:{1}", mins.ToString("00"), seconds.ToString("00"));
         }
 

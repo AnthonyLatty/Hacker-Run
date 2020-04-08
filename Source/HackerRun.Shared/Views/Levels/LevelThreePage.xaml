@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="HackerRun.Shared.Views.PhaseOnePage"
+    x:Class="HackerRun.Shared.Views.Levels.LevelThreePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
-    xmlns:control="clr-namespace:HackerRun.Shared.Controls" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:control="clr-namespace:HackerRun.Shared.Controls"
     BackgroundColor="{StaticResource WhiteColor}"
-    NavigationPage.HasBackButton="False"
     NavigationPage.HasNavigationBar="False"
     Visual="Material">
     <b:Interaction.Behaviors>
         <b:BehaviorCollection>
             <b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />
-            <b:EventToCommand Command="{Binding DisappearingCommand}" EventName="Disappearing" />
         </b:BehaviorCollection>
     </b:Interaction.Behaviors>
     <Grid RowSpacing="0">
@@ -25,28 +23,22 @@
         <control:TimerControl Grid.Row="0" />
 
         <!--  Row 1  -->
-        <StackLayout Grid.Row="1" Spacing="0">
+        <StackLayout Grid.Row="1">
             <Label
                 FontAttributes="Bold"
                 FontFamily="{StaticResource HeaderFont}"
                 FontSize="30"
                 HorizontalTextAlignment="Center"
-                Text="Level 1"
+                Text="Level 3"
                 VerticalTextAlignment="Center" />
-
-
-            <!--  Level 1 cntent here  -->
-
-            <material:MaterialRadioButtonGroup x:Name="radioButtonGroup" Choices="{Binding Options}"   />
-
-
-
-            <Button
+            <!--  Level 3 content here  -->
+            <!--<Button
+                Command="{Binding NavigateToLevelThreeCommand}"
                 CornerRadius="0"
                 HeightRequest="80"
                 Style="{StaticResource Btn-Secondary}"
                 Text="NEXT"
-                VerticalOptions="EndAndExpand" />
+                VerticalOptions="EndAndExpand" />-->
         </StackLayout>
     </Grid>
 </ContentPage>
