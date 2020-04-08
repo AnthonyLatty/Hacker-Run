@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Timers;
+using HackerRun.Shared.Views;
 using Xamarin.Forms;
 
 namespace HackerRun.Shared.ViewModels
@@ -39,7 +40,7 @@ namespace HackerRun.Shared.ViewModels
         public BaseViewModel()
         {
             // Adds interval to seconds
-            //_timer.Interval = 1000;
+            _timer.Interval = 1000;
             _timer.Elapsed += TimerElapsedEvent;
         }
 
@@ -110,6 +111,9 @@ namespace HackerRun.Shared.ViewModels
 
         public void RunTimerCountDown()
         {
+            // Gets current MainPage type when in ViewModel
+            var currentPage = App.Current.MainPage?.GetType();
+
             switch (_gameState)
             {
                 case GameState.PLAYING:
@@ -120,12 +124,23 @@ namespace HackerRun.Shared.ViewModels
                     {
                         case GameplayLevelStatus.LevelOneCompleted:
                             // Display Game over page
+                            if (currentPage == null || currentPage != typeof(GameOverPage))
+                            {
+                                App.Current.MainPage = new GameOverPage();
+                            }
                             break;
                         case GameplayLevelStatus.LevelTwoCompleted:
-                            // Display Game over page
+                            if (currentPage == null || currentPage != typeof(GameOverPage))
+                            {
+                                App.Current.MainPage = new GameOverPage();
+                            }
                             break;
                         case GameplayLevelStatus.LevelThreeCompleted:
                             // Display rewards page
+                            if (currentPage == null || currentPage != typeof(RewardsPage))
+                            {
+                                App.Current.MainPage = new RewardsPage();
+                            }
                             break;
                     }
                     break;

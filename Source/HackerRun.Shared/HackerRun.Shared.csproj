@@ -17,6 +17,7 @@
     <PackageReference Include="Corcav.Behaviors" Version="2.3.7" />
     <PackageReference Include="XF.Material" Version="1.5.8" />
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.442" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
