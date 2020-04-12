@@ -19,7 +19,6 @@ namespace HackerRun.Shared.ViewModels
 
             // Assign new count seconds
             CountSeconds = currentCountSeconds;
-
             if (_timerState == TimerState.STOPPED)
             {
                 _timer.Enabled = true;

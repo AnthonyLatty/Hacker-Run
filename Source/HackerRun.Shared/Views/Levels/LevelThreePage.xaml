@@ -31,7 +31,41 @@
                 HorizontalTextAlignment="Center"
                 Text="Level 3"
                 VerticalTextAlignment="Center" />
+            
             <!--  Level 3 content here  -->
+            <Label Text="Use the list of words below to answer all questions."
+                   Padding="10,10,15,0"
+                   FontSize="20"></Label>
+            <Label
+                Padding="10,10,15,0"
+                Text="passwords, access codes,retrieve information ,calendar ,phone list "
+                FontSize="15"></Label>
+            
+            <Label
+                FontSize="15"
+                Padding="10,10,15,0"
+                Text="In the world of information technology, dumpster diving is a technique used to________________that could be used to carry out an attack on a computer network."></Label>
+
+            <Entry Placeholder="Enter Answer here" FontSize="15" />
+
+
+            <Label
+                FontSize="15"
+                Padding="10,10,15,0"
+                Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______or _______written down on sticky notes.">
+            </Label>
+
+            <Entry Placeholder="Enter Answer here" FontSize="15" />
+
+            <Label
+                Text="Innocent information like a ________,_________, or organizational chart can be used to assist an attacker using social engineering techniques to gain access to the network."
+                Padding="10,10,15,0"
+                FontSize="15"></Label>
+
+            <Entry Placeholder="Enter Answer here" FontSize="15" />
+
+
+
             <Button
                 Command="{Binding NavigateToLevelThreeCommand}"
                 CornerRadius="0"

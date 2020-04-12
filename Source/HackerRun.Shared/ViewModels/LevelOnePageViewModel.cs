@@ -94,7 +94,7 @@ namespace HackerRun.Shared.ViewModels
 
                     await Task.Delay(TimeSpan.FromSeconds(delayTime));
 
-                    await Navigation.PushAsync(new LevelTwoPage());
+                    await Navigation.PushAsync(new LevelThreePage());
                 }
             }
             else
