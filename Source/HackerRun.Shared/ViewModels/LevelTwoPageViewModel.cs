@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
 using HackerRun.Shared.Views.Levels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -30,7 +32,6 @@ namespace HackerRun.Shared.ViewModels
             if (_timerState == TimerState.STOPPED)
             {
                 _timer.Start();
-                //_timer.Enabled = true;
                 _timerState = TimerState.RUNNING;
                 RunTimerCountDown();
                 TimerText = DisplayTimeFormat();
@@ -40,18 +41,28 @@ namespace HackerRun.Shared.ViewModels
         private bool CanExecuteNavigateToLevelThreeCommand()
         {
             // Add validation check here for each control in level 2
-            return false;
+            return true;
         }
 
-        private void ExecuteLevelThreeNavigation()
+        private async void ExecuteLevelThreeNavigation()
         {
             // Do final checks here also to ensure the values passed from the CanExecuteNavigateToLevelThreeCommand method is actually true
 
 
-
             // Save current count seconds
             Preferences.Set("current_count_seconds", CountSeconds);
-            Navigation.PushAsync(new LevelThreePage());
+            // Save current timer text
+            Preferences.Set("current_timer", TimerText);
+
+            using (UserDialogs.Instance.Loading("LOADING LEVEL 3"))
+            {
+                _timer.Stop();
+                _gameplayLevelStatus = GameplayLevelStatus.LevelTwoCompleted;
+
+                await Task.Delay(TimeSpan.FromSeconds(delayTime));
+
+                await Navigation.PushAsync(new LevelThreePage());
+            }
         }
     }
 }

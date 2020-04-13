@@ -10,7 +10,7 @@
     Visual="Material">
     <b:Interaction.Behaviors>
         <b:BehaviorCollection>
-            <b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />
+            <!--<b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />-->
         </b:BehaviorCollection>
     </b:Interaction.Behaviors>
     <Grid RowSpacing="0">
@@ -24,50 +24,59 @@
 
         <!--  Row 1  -->
         <StackLayout Grid.Row="1">
-            <Label
-                FontAttributes="Bold"
-                FontFamily="{StaticResource HeaderFont}"
-                FontSize="30"
-                HorizontalTextAlignment="Center"
-                Text="Level 3"
-                VerticalTextAlignment="Center" />
-            
-            <!--  Level 3 content here  -->
-            <Label Text="Use the list of words below to answer all questions."
-                   Padding="10,10,15,0"
-                   FontSize="20"></Label>
-            <Label
-                Padding="10,10,15,0"
-                Text="passwords, access codes,retrieve information ,calendar ,phone list "
-                FontSize="15"></Label>
-            
-            <Label
-                FontSize="15"
-                Padding="10,10,15,0"
-                Text="In the world of information technology, dumpster diving is a technique used to________________that could be used to carry out an attack on a computer network."></Label>
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                <StackLayout
+                    Margin="10"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Text="Level 3"
+                        VerticalTextAlignment="Center" />
+                    <!--  Level 3 content  -->
+                    <Label FontSize="18" Text="Use the list of words below to answer all questions." />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="passwords, access codes, retrieve information, calendar, phone list" />
+                    <BoxView
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        HeightRequest="1"
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="70" />
 
-            <Entry Placeholder="Enter Answer here" FontSize="15" />
+                    <Label
+                        FontAttributes="None"
+                        FontSize="20"
+                        LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="In the world of information technology, dumpster diving is a technique used to " />
+                                <Span FontAttributes="Bold" Text="________" />
+                                <!--<Span FontAttributes="Bold" Text="{Binding QuestionOne}" />-->
+                                <Span Text=" that could be used to carry out an attack on a computer network." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry
+                        BackgroundColor="Transparent"
+                        Placeholder="Enter Answer here"
+                        Text="{Binding QuestionOne}"
+                        WidthRequest="50" />
 
 
-            <Label
-                FontSize="15"
-                Padding="10,10,15,0"
-                Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______or _______written down on sticky notes.">
-            </Label>
 
-            <Entry Placeholder="Enter Answer here" FontSize="15" />
-
-            <Label
-                Text="Innocent information like a ________,_________, or organizational chart can be used to assist an attacker using social engineering techniques to gain access to the network."
-                Padding="10,10,15,0"
-                FontSize="15"></Label>
-
-            <Entry Placeholder="Enter Answer here" FontSize="15" />
-
-
-
+                    <Label FontSize="15" Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______or _______written down on sticky notes." />
+                    <Entry FontSize="15" Placeholder="Enter Answer here" />
+                    <Label FontSize="15" Text="Innocent information like a ________,_________, or organizational chart can be used to assist an attacker using social engineering techniques to gain access to the network." />
+                    <Entry FontSize="15" Placeholder="Enter Answer here" />
+                </StackLayout>
+            </ScrollView>
             <Button
-                Command="{Binding NavigateToLevelThreeCommand}"
+                Command="{Binding NavigateToFinalCommand}"
                 CornerRadius="0"
                 HeightRequest="60"
                 Style="{StaticResource Btn-Secondary}"
