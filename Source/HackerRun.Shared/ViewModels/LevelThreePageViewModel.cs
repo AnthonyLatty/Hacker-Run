@@ -50,19 +50,45 @@ namespace HackerRun.Shared.ViewModels
                 NavigateToFinalCommand.ChangeCanExecute();
             }
         }
+
+        private string _questionTwoOptions;
+        public string QuestionTwoOptions
+        {
+            get => _questionTwoOptions;
+            set
+            {
+                _questionTwoOptions = value;
+                OnPropertyChanged();
+                NavigateToFinalCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionThreeOptions;
+        public string QuestionThreeOptions
+        {
+            get => _questionThreeOptions;
+            set
+            {
+                _questionThreeOptions = value;
+                OnPropertyChanged();
+                NavigateToFinalCommand.ChangeCanExecute();
+            }
+        }
         #endregion
 
         private bool CanExecuteNavigateToFinalCommand()
         {
-            return !string.IsNullOrEmpty(_questionOne);
+            return !string.IsNullOrEmpty(_questionOne) && !string.IsNullOrEmpty(_questionTwoOptions) && !string.IsNullOrEmpty(_questionThreeOptions);
         }
 
-        private async void ExecuteFinalNavigation()
+        private async void ExecuteFinalNavigation() 
         {
-            string correctQuestionOneAnswer = "Retrieve information";
+            string correctQuestionOneAnswer = "retrieve information";
+            string correctQuestionTwoAnswer = "C. access codes or passwords";
+            string correctQuestionThreeAnswer = "E. phone list or organizational chart";
 
 
-            if (QuestionOne == correctQuestionOneAnswer)
+            if (QuestionOne == correctQuestionOneAnswer && QuestionTwoOptions==correctQuestionTwoAnswer && QuestionThreeOptions==correctQuestionThreeAnswer)
             {
                 // Save current count seconds
                 Preferences.Set("current_count_seconds", CountSeconds);

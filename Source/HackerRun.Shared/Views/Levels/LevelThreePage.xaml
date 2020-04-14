@@ -41,7 +41,7 @@
                     <Label
                         FontAttributes="Bold"
                         FontSize="20"
-                        Text="passwords, access codes, retrieve information, calendar, phone list" />
+                        Text="passwords, access codes, retrieve information, calendar, phone list, Treasure" />
                     <BoxView
                         BackgroundColor="{StaticResource PrimaryColor}"
                         HeightRequest="1"
@@ -66,13 +66,39 @@
                         Placeholder="Enter Answer here"
                         Text="{Binding QuestionOne}"
                         WidthRequest="50" />
-
-
-
+                    
                     <Label FontSize="15" Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______or _______written down on sticky notes." />
-                    <Entry FontSize="15" Placeholder="Enter Answer here" />
-                    <Label FontSize="15" Text="Innocent information like a ________,_________, or organizational chart can be used to assist an attacker using social engineering techniques to gain access to the network." />
-                    <Entry FontSize="15" Placeholder="Enter Answer here" />
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionTwoOptions}">
+                        <Picker.Items>
+                            <x:String>A. Treasure</x:String>
+                            <x:String>B. retrieve information</x:String>
+                            <x:String>C. access codes or passwords</x:String>
+                            <x:String>D. passwords or phone list</x:String>
+                            <x:String>E. calendar</x:String>
+
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label FontSize="15" Text="Innocent information like a ________,calendar, or ____________ can be used to assist an attacker using social engineering techniques to gain access to the network." />
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionThreeOptions}">
+                        <Picker.Items>
+                            <x:String>A. Treasure</x:String>
+                            <x:String>B. retrieve information</x:String>
+                            <x:String>C. access codes</x:String>
+                            <x:String>D. Passwords or organizational chart</x:String>
+                            <x:String>E. phone list or organizational chart</x:String>
+                            <x:String>F. calendar</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label></Label>
+
                 </StackLayout>
             </ScrollView>
             <Button
