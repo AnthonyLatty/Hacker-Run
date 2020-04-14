@@ -36,11 +36,21 @@
                         HorizontalTextAlignment="Center"
                         Text="Level 1"
                         VerticalTextAlignment="Center" />
-                    <Label
-                        FontFamily="{StaticResource HeaderFont}"
-                        FontSize="25"
-                        LineBreakMode="WordWrap"
-                        Text="Which of the following below is the best way to detect phishing emails?" />
+                    <control:Divider HorizontalOptions="CenterAndExpand" />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="1. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Which of the following below is the best way to detect phishing emails?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Picker
                         Title="Select your Answer"
                         BackgroundColor="Transparent"
@@ -53,11 +63,20 @@
                             <x:String>E. All of the above</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Label
-                        FontFamily="{StaticResource HeaderFont}"
-                        FontSize="25"
-                        LineBreakMode="WordWrap"
-                        Text="Which of the following below is a great example of a secure password" />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="2. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Which of the following below is a great example of a secure password" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Picker
                         Title="Select your Answer"
                         BackgroundColor="Transparent"
@@ -70,11 +89,20 @@
                             <x:String>E. None of the Above</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Label
-                        FontFamily="{StaticResource HeaderFont}"
-                        FontSize="25"
-                        LineBreakMode="WordWrap"
-                        Text="Which of the following is the best practice of secure wifi usage in public and private space?" />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="3. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Which of the following is the best practice of secure wifi usage in public and private space?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Picker
                         Title="Select your Answer"
                         BackgroundColor="Transparent"

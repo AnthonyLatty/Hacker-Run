@@ -10,7 +10,7 @@
     Visual="Material">
     <b:Interaction.Behaviors>
         <b:BehaviorCollection>
-            <!--<b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />-->
+            <b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />
         </b:BehaviorCollection>
     </b:Interaction.Behaviors>
     <Grid RowSpacing="0">
@@ -36,28 +36,36 @@
                         HorizontalTextAlignment="Center"
                         Text="Level 3"
                         VerticalTextAlignment="Center" />
+                    <control:Divider HorizontalOptions="CenterAndExpand" />
                     <!--  Level 3 content  -->
-                    <Label FontSize="18" Text="Use the list of words below to answer all questions." />
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        Text="passwords, access codes, retrieve information, calendar, phone list, Treasure" />
-                    <BoxView
-                        BackgroundColor="{StaticResource PrimaryColor}"
-                        HeightRequest="1"
-                        HorizontalOptions="CenterAndExpand"
-                        WidthRequest="70" />
-
-                    <Label
-                        FontAttributes="None"
-                        FontSize="20"
-                        LineBreakMode="WordWrap">
+                    <Label HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="In the world of information technology, dumpster diving is a technique used to " />
-                                <Span FontAttributes="Bold" Text="________" />
-                                <!--<Span FontAttributes="Bold" Text="{Binding QuestionOne}" />-->
-                                <Span Text=" that could be used to carry out an attack on a computer network." />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Use the list of words below to answer all questions: " />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource NormalFont}"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="passwords, access codes, retrieve information, calendar, phone list, Treasure" />
+                    <control:Divider HorizontalOptions="FillAndExpand" />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="1. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="In the world of information technology, dumpster diving is a technique used to ______ that could be used to carry out an attack on a computer network." />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -66,23 +74,48 @@
                         Placeholder="Enter Answer here"
                         Text="{Binding QuestionOne}"
                         WidthRequest="50" />
-                    
-                    <Label FontSize="15" Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______or _______written down on sticky notes." />
+
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="2. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______ or _______written down on sticky notes." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Picker
                         Title="Select your Answer"
                         BackgroundColor="Transparent"
                         SelectedItem="{Binding QuestionTwoOptions}">
                         <Picker.Items>
-                            <x:String>A. Treasure</x:String>
+                            <x:String>A. Treasure or gold</x:String>
                             <x:String>B. retrieve information</x:String>
                             <x:String>C. access codes or passwords</x:String>
                             <x:String>D. passwords or phone list</x:String>
                             <x:String>E. calendar</x:String>
-
                         </Picker.Items>
                     </Picker>
 
-                    <Label FontSize="15" Text="Innocent information like a ________,calendar, or ____________ can be used to assist an attacker using social engineering techniques to gain access to the network." />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="3. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Innocent information like a ________, calendar, or ____________ can be used to assist an attacker using social engineering techniques to gain access to the network." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Picker
                         Title="Select your Answer"
                         BackgroundColor="Transparent"
@@ -90,15 +123,12 @@
                         <Picker.Items>
                             <x:String>A. Treasure</x:String>
                             <x:String>B. retrieve information</x:String>
-                            <x:String>C. access codes</x:String>
+                            <x:String>C. access codes or treasure</x:String>
                             <x:String>D. Passwords or organizational chart</x:String>
                             <x:String>E. phone list or organizational chart</x:String>
                             <x:String>F. calendar</x:String>
                         </Picker.Items>
                     </Picker>
-
-                    <Label></Label>
-
                 </StackLayout>
             </ScrollView>
             <Button

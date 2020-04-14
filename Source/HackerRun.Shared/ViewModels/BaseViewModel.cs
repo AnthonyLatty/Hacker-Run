@@ -31,7 +31,8 @@ namespace HackerRun.Shared.ViewModels
         // Navigation property inherited in view models
         public INavigation Navigation { get; set; }
 
-        public int delayTime = 5;
+        public int PenaltyTime = 300;
+        public int delayTime = 3;
         public GameplayLevelStatus _gameplayLevelStatus = GameplayLevelStatus.Waiting;
         public GameState _gameState = GameState.PLAYING;
         public TimerState _timerState = TimerState.STOPPED;
