@@ -13,7 +13,6 @@ namespace HackerRun.Shared.ViewModels
         private Command _navigateToLevelTwoCommand;
         public Command NavigateToLevelTwoCommand => _navigateToLevelTwoCommand ?? (_navigateToLevelTwoCommand = new Command(ExecuteLevelTwoNavigation, CanExecuteNavigateToLevelTwoCommand));
 
-        
         public LevelOnePageViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -64,7 +63,6 @@ namespace HackerRun.Shared.ViewModels
                 CountSeconds = 1800;
                 _timer.Start();
                 _timerState = TimerState.RUNNING;
-                RunTimerCountDown();
                 TimerText = DisplayTimeFormat();
             }
         }
@@ -90,7 +88,6 @@ namespace HackerRun.Shared.ViewModels
                 using (UserDialogs.Instance.Loading("LOADING LEVEL 2"))
                 {
                     _timer.Stop();
-                    _gameplayLevelStatus = GameplayLevelStatus.LevelOneCompleted;
 
                     await Task.Delay(TimeSpan.FromSeconds(delayTime));
 

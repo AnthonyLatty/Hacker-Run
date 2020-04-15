@@ -29,7 +29,6 @@ namespace HackerRun.Droid
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
             AnimationViewRenderer.Init();
-            XF.Material.Droid.Material.Init(this, savedInstanceState);
             UserDialogs.Init(this);
 
             LoadApplication(new App());

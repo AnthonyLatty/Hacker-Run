@@ -32,8 +32,6 @@ namespace HackerRun.Shared.ViewModels
             if (_timerState == TimerState.STOPPED)
             {
                 _timer.Start();
-                _timerState = TimerState.RUNNING;
-                RunTimerCountDown();
                 TimerText = DisplayTimeFormat();
             }
         }
@@ -98,7 +96,6 @@ namespace HackerRun.Shared.ViewModels
                 using (UserDialogs.Instance.Loading("PROCESSING RESULTS"))
                 {
                     _timer.Stop();
-                    _gameplayLevelStatus = GameplayLevelStatus.LevelThreeCompleted;
 
                     await Task.Delay(TimeSpan.FromSeconds(delayTime));
 
