@@ -24,16 +24,22 @@ namespace HackerRun.Shared.ViewModels
         // Navigation property inherited in view models
         public INavigation Navigation { get; set; }
 
-        public int PenaltyTime = 300;
-        public int delayTime = 3;
+        public int LevelOnePenaltyTime = 150;
+        public int LevelTwoPenaltyTime = 100;
+        public int LevelThreePenaltyTime = 70;
+        public int NormalTimerInterval = 1000;
+        public int OriginalTime = 1800;
+        public int delayTime = 2000;
         public GameState _gameState = GameState.PLAYING;
         public TimerState _timerState = TimerState.STOPPED;
         public Timer _timer = new Timer();
 
         public BaseViewModel()
         {
+            bool IsUserFailedBefore = Preferences.Get("ErrorStatus", false);
+
             // Adds interval to seconds
-            //_timer.Interval = 1000;
+            _timer.Interval = NormalTimerInterval;
             _timer.Elapsed += TimerElapsedEvent;
         }
 

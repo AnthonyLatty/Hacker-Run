@@ -37,8 +37,205 @@
                             HorizontalTextAlignment="Center"
                             Text="Level 2"
                             VerticalTextAlignment="Center" />
-                        <control:Divider />
+                        <control:Divider HorizontalOptions="CenterAndExpand" />
                         <!--  Level 2 content here  -->
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="1. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="How can you ensure the integrity of files sent across a network?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionOneOptions}">
+                            <Picker.Items>
+                                <x:String>A. Hashing</x:String>
+                                <x:String>B. Encryption</x:String>
+                                <x:String>C. Send file in an email</x:String>
+                                <x:String>D. Ask receiver if the file looks different</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="2. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="Who tries to steal information from people?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionTwoOptions}">
+                            <Picker.Items>
+                                <x:String>A. Social Engineers</x:String>
+                                <x:String>B. Theifs</x:String>
+                                <x:String>C. The U.S. Government</x:String>
+                                <x:String>D. Professor Brown</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="3. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="What is the goal of social engineering?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionThreeOptions}">
+                            <Picker.Items>
+                                <x:String>A. To gain vital personal information</x:String>
+                                <x:String>B. Sabotage a person's social media</x:String>
+                                <x:String>C. To catfish someone</x:String>
+                                <x:String>D. To build trust</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="4. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="Spammers want you to: " />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionFourOptions}">
+                            <Picker.Items>
+                                <x:String>A. Not open any links</x:String>
+                                <x:String>B. Think first and act later</x:String>
+                                <x:String>C. Act first and think later</x:String>
+                                <x:String>D. Update your software automatically</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="5. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="Which of the following are examples of social engineering scams executed via phishing?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionFiveOptions}">
+                            <Picker.Items>
+                                <x:String>A. Banking Link Scams</x:String>
+                                <x:String>B. Fax Notice Scams</x:String>
+                                <x:String>C. Facebook Message Link Scams</x:String>
+                                <x:String>D. All of the above</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="35"
+                                        Text="6. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="What is piggybacking?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding QuestionSixOptions}">
+                            <Picker.Items>
+                                <x:String>A. Trawling parking lots for goods</x:String>
+                                <x:String>B. Creating pretext or false stories to gain information</x:String>
+                                <x:String>C. Sending legitimate emails to people</x:String>
+                                <x:String>D. Following employees into restricted areas</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="{StaticResource HeaderFont}"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="Bonus Question (Optional)"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            FontAttributes="Italic"
+                            FontFamily="{StaticResource NormalFont}"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="Bonus Questions reset the timer to 30 mins for the next level if the answer is correct"
+                            VerticalTextAlignment="Center" />
+                        <Label
+                            FontAttributes="Italic"
+                            FontFamily="{StaticResource NormalFont}"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="Once started their is no turning back 😈"
+                            VerticalTextAlignment="Center" />
+                        <control:Divider HorizontalOptions="CenterAndExpand" />
+                        <Label LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        FontSize="22"
+                                        Text="1. "
+                                        TextColor="{StaticResource PrimaryColor}" />
+                                    <Span
+                                        FontFamily="{StaticResource NormalFont}"
+                                        FontSize="18"
+                                        Text="Which person is known as the World's Most Famous Hacker?" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Picker
+                            Title="Select your Answer"
+                            BackgroundColor="Transparent"
+                            SelectedItem="{Binding BonusQuestionOptions}">
+                            <Picker.Items>
+                                <x:String>A. Stu Sjouwerman</x:String>
+                                <x:String>B. Kevin Mitnick</x:String>
+                                <x:String>C. Matthew Steward</x:String>
+                                <x:String>D. All of the above</x:String>
+                            </Picker.Items>
+                        </Picker>
                     </StackLayout>
                 </ScrollView>
             </StackLayout>

@@ -74,7 +74,6 @@
                         Placeholder="Enter Answer here"
                         Text="{Binding QuestionOne}"
                         WidthRequest="50" />
-
                     <Label LineBreakMode="WordWrap">
                         <Label.FormattedText>
                             <FormattedString>
@@ -101,7 +100,6 @@
                             <x:String>E. calendar</x:String>
                         </Picker.Items>
                     </Picker>
-
                     <Label LineBreakMode="WordWrap">
                         <Label.FormattedText>
                             <FormattedString>
@@ -127,6 +125,181 @@
                             <x:String>D. Passwords or organizational chart</x:String>
                             <x:String>E. phone list or organizational chart</x:String>
                             <x:String>F. calendar</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="4. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="What is one way to prevent a dumpster diving attack?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionFourOptions}">
+                        <Picker.Items>
+                            <x:String>A. Shred or burn documents</x:String>
+                            <x:String>B. Crumple paper documents properly</x:String>
+                            <x:String>C. Seal documents in an envelope before disposing</x:String>
+                            <x:String>D. Throw away computer</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="5. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="What is the definition of Phishing?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionFiveOptions}">
+                        <Picker.Items>
+                            <x:String>A. The act of sending someone an email to gain top secret information</x:String>
+                            <x:String>B. The act of sending a text message to gain top secret information</x:String>
+                            <x:String>C. The act of tricking someone to give you top secret information</x:String>
+                            <x:String>D. All of The Above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="6. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="What should you never throw away?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionSixOptions}">
+                        <Picker.Items>
+                            <x:String>A. Receipts</x:String>
+                            <x:String>B. Bills</x:String>
+                            <x:String>C. Top Secret Information</x:String>
+                            <x:String>D. All of The Above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="7. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Julie wants to throw away important papers, but doesn't want a bad guy to steal them. What is the best method she should use to throw away the papers, so she doesn't experience Dumpster Diving?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionSevenOptions}">
+                        <Picker.Items>
+                            <x:String>A. Shred the papers</x:String>
+                            <x:String>B. Burn the papers</x:String>
+                            <x:String>C. Both A and B</x:String>
+                            <x:String>D. Save to Google Docs</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="8. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="What are the main types of data classification?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionEightOptions}">
+                        <Picker.Items>
+                            <x:String>A. Content, Context, User</x:String>
+                            <x:String>B. Safe, loyal, Respect</x:String>
+                            <x:String>C. None of the Above</x:String>
+                            <x:String>D. All of The Above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="9. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="How are &quot;Dumpster Diving&quot; and &quot;Identity Theft&quot; related?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionNineOptions}">
+                        <Picker.Items>
+                            <x:String>A. Both can lead to hurting a lot of people</x:String>
+                            <x:String>B. One is illegal the other is not</x:String>
+                            <x:String>C. Both can either be physical or abstract</x:String>
+                            <x:String>D. All of The Above</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="10. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Which is safe to throw away?" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionTenOptions}">
+                        <Picker.Items>
+                            <x:String>A. Paper Wrappers (Ketchup Packets)</x:String>
+                            <x:String>B. Social Security Card</x:String>
+                            <x:String>C. Money</x:String>
+                            <x:String>D. Birth Certificate</x:String>
                         </Picker.Items>
                     </Picker>
                 </StackLayout>

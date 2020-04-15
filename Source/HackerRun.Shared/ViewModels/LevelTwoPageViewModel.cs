@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Acr.UserDialogs;
 using HackerRun.Shared.Views.Levels;
 using Xamarin.Essentials;
@@ -20,6 +19,22 @@ namespace HackerRun.Shared.ViewModels
 
         private void ExecuteAppearingCommand()
         {
+            var IsUserFailedBefore = Preferences.Get("FailedStatus", true);
+
+            if (IsUserFailedBefore)
+            {
+                // Increase timer speed
+                _timer.Interval = LevelOnePenaltyTime;
+                DisplayCounter();
+            }
+            else
+            {
+                DisplayCounter();
+            }
+        }
+
+        private void DisplayCounter()
+        {
             // Get previous count seconds
             var currentCountSeconds = Preferences.Get("current_count_seconds", CountSeconds);
             // Get previous timer text
@@ -36,17 +51,137 @@ namespace HackerRun.Shared.ViewModels
             }
         }
 
-        private bool CanExecuteNavigateToLevelThreeCommand()
+        #region Public Properties
+        private string _questionOneOptions;
+        public string QuestionOneOptions
         {
-            // Add validation check here for each control in level 2
-            return true;
+            get => _questionOneOptions;
+            set
+            {
+                _questionOneOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
         }
 
-        private async void ExecuteLevelThreeNavigation()
+        private string _questionTwoOptions;
+        public string QuestionTwoOptions
         {
-            // Do final checks here also to ensure the values passed from the CanExecuteNavigateToLevelThreeCommand method is actually true
+            get => _questionTwoOptions;
+            set
+            {
+                _questionTwoOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
 
+        private string _questionThreeOptions;
+        public string QuestionThreeOptions
+        {
+            get => _questionThreeOptions;
+            set
+            {
+                _questionThreeOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
 
+        private string _questionFourOptions;
+        public string QuestionFourOptions
+        {
+            get => _questionFourOptions;
+            set
+            {
+                _questionFourOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionFiveOptions;
+        public string QuestionFiveOptions
+        {
+            get => _questionFiveOptions;
+            set
+            {
+                _questionFiveOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionSixOptions;
+        public string QuestionSixOptions
+        {
+            get => _questionSixOptions;
+            set
+            {
+                _questionSixOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _bonusQuestionOptions;
+        public string BonusQuestionOptions
+        {
+            get => _bonusQuestionOptions;
+            set
+            {
+                _bonusQuestionOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+        #endregion
+
+        private bool CanExecuteNavigateToLevelThreeCommand()
+        {
+            return !string.IsNullOrEmpty(_questionOneOptions) && !string.IsNullOrEmpty(_questionTwoOptions) && !string.IsNullOrEmpty(_questionThreeOptions) && !string.IsNullOrEmpty(_questionFourOptions) && !string.IsNullOrEmpty(_questionFiveOptions) && !string.IsNullOrEmpty(_questionSixOptions);
+        }
+
+        private void ExecuteLevelThreeNavigation()
+        {
+            string correctQuestionOne = "B. Encryption";
+            string correctQuestionTwo = "A. Social Engineers";
+            string correctQuestionThree = "A. To gain vital personal information";
+            string correctQuestionFour = "C. Act first and think later";
+            string correctQuestionFive = "D. All of the above";
+            string correctQuestionSix = "D. Following employees into restricted areas";
+            string correctBonusQuestion = "B. Kevin Mitnick";
+
+            // Validation without bonus question
+            if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix && BonusQuestionOptions == null)
+            {
+                NavigateToNextLevel();
+            }
+            else if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix && BonusQuestionOptions == correctBonusQuestion)
+            {
+                // Reset timer to 30 min
+                CountSeconds = OriginalTime;
+                TimerText = "30:00";
+
+                // set bonus question flag
+                Preferences.Set("GotBonusQuestion", true);
+
+                // Reset timer speed
+                _timer.Interval = NormalTimerInterval;
+
+                NavigateToNextLevel();
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("One or more of your response is incorrect, hurry up and check your answers before time runs out ⏰", "Oops 🤕", "Ok");
+
+                // Increase timer speed
+                _timer.Interval = LevelTwoPenaltyTime;
+            }
+        }
+
+        private async void NavigateToNextLevel()
+        {
             // Save current count seconds
             Preferences.Set("current_count_seconds", CountSeconds);
             // Save current timer text
@@ -56,7 +191,7 @@ namespace HackerRun.Shared.ViewModels
             {
                 _timer.Stop();
 
-                await Task.Delay(TimeSpan.FromSeconds(delayTime));
+                await Task.Delay(delayTime);
 
                 await Navigation.PushAsync(new LevelThreePage());
             }

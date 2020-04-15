@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Acr.UserDialogs;
 using HackerRun.Shared.Views.Levels;
 using Xamarin.Essentials;
@@ -60,7 +59,7 @@ namespace HackerRun.Shared.ViewModels
         {
             if (_timerState == TimerState.STOPPED)
             {
-                CountSeconds = 1800;
+                CountSeconds = OriginalTime;
                 _timer.Start();
                 _timerState = TimerState.RUNNING;
                 TimerText = DisplayTimeFormat();
@@ -89,7 +88,7 @@ namespace HackerRun.Shared.ViewModels
                 {
                     _timer.Stop();
 
-                    await Task.Delay(TimeSpan.FromSeconds(delayTime));
+                    await Task.Delay(delayTime);
 
                     await Navigation.PushAsync(new LevelTwoPage());
                 }
@@ -97,6 +96,12 @@ namespace HackerRun.Shared.ViewModels
             else
             {
                 UserDialogs.Instance.Alert("One or more of your response is incorrect, hurry up and check your answers before time runs out ⏰", "Oops 🤕", "Ok");
+
+                // Set failed status
+                Preferences.Set("FailedStatus", true);
+
+                // Increase timer speed
+                _timer.Interval = LevelOnePenaltyTime;
             }
         }
     }
