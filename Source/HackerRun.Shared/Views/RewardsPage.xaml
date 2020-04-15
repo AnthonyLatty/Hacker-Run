@@ -3,13 +3,19 @@
     x:Class="HackerRun.Shared.Views.RewardsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
     xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     BackgroundColor="{StaticResource WhiteColor}"
     NavigationPage.HasNavigationBar="False"
     Visual="Material">
+    <b:Interaction.Behaviors>
+        <b:BehaviorCollection>
+            <b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />
+        </b:BehaviorCollection>
+    </b:Interaction.Behaviors>
     <Grid RowSpacing="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="180" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -29,8 +35,24 @@
                 FontSize="20"
                 HorizontalTextAlignment="Center"
                 Text="Thanks for playing Hacker Run" />
+            <Label HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontAttributes="Italic"
+                            FontFamily="{StaticResource HeaderFont}"
+                            FontSize="20"
+                            Text="Congrats you finished in: " />
+                        <Span
+                            FontAttributes="Bold"
+                            FontFamily="{StaticResource HeaderFont}"
+                            FontSize="30"
+                            Text="{Binding WinningTimeText}"
+                            TextColor="{StaticResource PrimaryColor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
-
 
         <!--  Animation  -->
         <StackLayout Grid.Row="1">
@@ -49,7 +71,7 @@
                     WidthRequest="500" />
             </StackLayout>
             <Button
-                Clicked="ReturnToHome_Clicked"
+                Command="{Binding ReturnToHomeCommand}"
                 CornerRadius="0"
                 HeightRequest="60"
                 Style="{StaticResource Btn-Primary}"

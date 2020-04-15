@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="300" />
+            <RowDefinition Height="340" />
         </Grid.RowDefinitions>
 
         <!--  Row 0  -->
@@ -31,7 +31,7 @@
                 FontFamily="{StaticResource HeaderFont}"
                 FontSize="18"
                 HorizontalTextAlignment="Center"
-                Text="Hack your way out to glory..." />
+                Text="Hack your way out to glory" />
         </StackLayout>
 
         <!--  Row 1  -->
@@ -49,6 +49,23 @@
                 HeightRequest="150"
                 HorizontalOptions="FillAndExpand"
                 Source="turtle" />
+            <StackLayout Margin="20">
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource HeaderFont}"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="Remember you will be penalize for wrong answers"
+                    TextColor="{StaticResource SecondaryColor}" />
+                <Label
+                    FontAttributes="Bold"
+                    FontFamily="{StaticResource HeaderFont}"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="Be careful!"
+                    TextColor="{StaticResource SecondaryColor}" />
+            </StackLayout>
+
             <Button
                 Command="{Binding StartGameCommand}"
                 CornerRadius="0"

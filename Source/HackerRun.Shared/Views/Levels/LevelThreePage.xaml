@@ -24,16 +24,115 @@
 
         <!--  Row 1  -->
         <StackLayout Grid.Row="1">
-            <Label
-                FontAttributes="Bold"
-                FontFamily="{StaticResource HeaderFont}"
-                FontSize="30"
-                HorizontalTextAlignment="Center"
-                Text="Level 3"
-                VerticalTextAlignment="Center" />
-            <!--  Level 3 content here  -->
+            <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                <StackLayout
+                    Margin="10"
+                    HorizontalOptions="CenterAndExpand"
+                    Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource HeaderFont}"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        Text="Level 3"
+                        VerticalTextAlignment="Center" />
+                    <control:Divider HorizontalOptions="CenterAndExpand" />
+                    <!--  Level 3 content  -->
+                    <Label HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Use the list of words below to answer all questions: " />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource NormalFont}"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="passwords, access codes, retrieve information, calendar, phone list, Treasure" />
+                    <control:Divider HorizontalOptions="FillAndExpand" />
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="1. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="In the world of information technology, dumpster diving is a technique used to ______ that could be used to carry out an attack on a computer network." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Entry
+                        BackgroundColor="Transparent"
+                        Placeholder="Enter Answer here"
+                        Text="{Binding QuestionOne}"
+                        WidthRequest="50" />
+
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="2. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Dumpster diving isn't limited to searching through the trash for obvious treasures like ______ or _______written down on sticky notes." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionTwoOptions}">
+                        <Picker.Items>
+                            <x:String>A. Treasure or gold</x:String>
+                            <x:String>B. retrieve information</x:String>
+                            <x:String>C. access codes or passwords</x:String>
+                            <x:String>D. passwords or phone list</x:String>
+                            <x:String>E. calendar</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label LineBreakMode="WordWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                    FontSize="35"
+                                    Text="3. "
+                                    TextColor="{StaticResource PrimaryColor}" />
+                                <Span
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="18"
+                                    Text="Innocent information like a ________, calendar, or ____________ can be used to assist an attacker using social engineering techniques to gain access to the network." />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Picker
+                        Title="Select your Answer"
+                        BackgroundColor="Transparent"
+                        SelectedItem="{Binding QuestionThreeOptions}">
+                        <Picker.Items>
+                            <x:String>A. Treasure</x:String>
+                            <x:String>B. retrieve information</x:String>
+                            <x:String>C. access codes or treasure</x:String>
+                            <x:String>D. Passwords or organizational chart</x:String>
+                            <x:String>E. phone list or organizational chart</x:String>
+                            <x:String>F. calendar</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </ScrollView>
             <Button
-                Command="{Binding NavigateToLevelThreeCommand}"
+                Command="{Binding NavigateToFinalCommand}"
                 CornerRadius="0"
                 HeightRequest="60"
                 Style="{StaticResource Btn-Secondary}"

@@ -37,6 +37,7 @@
                             HorizontalTextAlignment="Center"
                             Text="Level 2"
                             VerticalTextAlignment="Center" />
+                        <control:Divider />
                         <!--  Level 2 content here  -->
                     </StackLayout>
                 </ScrollView>
