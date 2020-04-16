@@ -97,9 +97,6 @@ namespace HackerRun.Shared.ViewModels
             {
                 UserDialogs.Instance.Alert("One or more of your response is incorrect, hurry up and check your answers before time runs out ⏰", "Oops 🤕", "Ok");
 
-                // Set failed status
-                Preferences.Set("FailedStatus", true);
-
                 // Increase timer speed
                 _timer.Interval = LevelOnePenaltyTime;
             }

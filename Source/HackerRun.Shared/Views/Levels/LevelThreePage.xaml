@@ -44,16 +44,25 @@
                                 <Span
                                     FontFamily="{StaticResource NormalFont}"
                                     FontSize="18"
-                                    Text="Use the list of words below to answer all questions: " />
+                                    Text="Use the list of words below to answer questions " />
+                                <Span
+                                    FontAttributes="Bold"
+                                    FontFamily="{StaticResource NormalFont}"
+                                    FontSize="23"
+                                    Text="1 to 3"
+                                    TextColor="{StaticResource PrimaryColor}" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <Label
-                        FontAttributes="Bold"
-                        FontFamily="{StaticResource NormalFont}"
-                        FontSize="18"
-                        HorizontalTextAlignment="Center"
-                        Text="passwords, access codes, retrieve information, calendar, phone list, Treasure" />
+                    <StackLayout>
+                        <Label Style="{StaticResource ListLabel}" Text="• passwords" />
+                        <Label Style="{StaticResource ListLabel}" Text="• access codes" />
+                        <Label Style="{StaticResource ListLabel}" Text="• retrieve information" />
+                        <Label Style="{StaticResource ListLabel}" Text="• calendar" />
+                        <Label Style="{StaticResource ListLabel}" Text="• phone list" />
+                        <Label Style="{StaticResource ListLabel}" Text="• treasure" />
+                        <Label Style="{StaticResource ListLabel}" Text="• organizational chart" />
+                    </StackLayout>
                     <control:Divider HorizontalOptions="FillAndExpand" />
                     <Label LineBreakMode="WordWrap">
                         <Label.FormattedText>

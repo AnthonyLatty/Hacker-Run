@@ -19,22 +19,6 @@ namespace HackerRun.Shared.ViewModels
 
         private void ExecuteAppearingCommand()
         {
-            var IsUserFailedBefore = Preferences.Get("FailedStatus", true);
-
-            if (IsUserFailedBefore)
-            {
-                // Increase timer speed
-                _timer.Interval = LevelOnePenaltyTime;
-                DisplayCounter();
-            }
-            else
-            {
-                DisplayCounter();
-            }
-        }
-
-        private void DisplayCounter()
-        {
             // Get previous count seconds
             var currentCountSeconds = Preferences.Get("current_count_seconds", CountSeconds);
             // Get previous timer text
@@ -142,7 +126,7 @@ namespace HackerRun.Shared.ViewModels
             return !string.IsNullOrEmpty(_questionOneOptions) && !string.IsNullOrEmpty(_questionTwoOptions) && !string.IsNullOrEmpty(_questionThreeOptions) && !string.IsNullOrEmpty(_questionFourOptions) && !string.IsNullOrEmpty(_questionFiveOptions) && !string.IsNullOrEmpty(_questionSixOptions);
         }
 
-        private void ExecuteLevelThreeNavigation()
+        private async void ExecuteLevelThreeNavigation()
         {
             string correctQuestionOne = "B. Encryption";
             string correctQuestionTwo = "A. Social Engineers";
@@ -150,26 +134,23 @@ namespace HackerRun.Shared.ViewModels
             string correctQuestionFour = "C. Act first and think later";
             string correctQuestionFive = "D. All of the above";
             string correctQuestionSix = "D. Following employees into restricted areas";
-            string correctBonusQuestion = "B. Kevin Mitnick";
 
             // Validation without bonus question
-            if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix && BonusQuestionOptions == null)
+            if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix)
             {
-                NavigateToNextLevel();
-            }
-            else if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix && BonusQuestionOptions == correctBonusQuestion)
-            {
-                // Reset timer to 30 min
-                CountSeconds = OriginalTime;
-                TimerText = "30:00";
+                // Save current count seconds
+                Preferences.Set("current_count_seconds", CountSeconds);
+                // Save current timer text
+                Preferences.Set("current_timer", TimerText);
 
-                // set bonus question flag
-                Preferences.Set("GotBonusQuestion", true);
+                using (UserDialogs.Instance.Loading("LOADING LEVEL 3"))
+                {
+                    _timer.Stop();
 
-                // Reset timer speed
-                _timer.Interval = NormalTimerInterval;
+                    await Task.Delay(delayTime);
 
-                NavigateToNextLevel();
+                    await Navigation.PushAsync(new LevelThreePage());
+                }
             }
             else
             {
@@ -177,23 +158,6 @@ namespace HackerRun.Shared.ViewModels
 
                 // Increase timer speed
                 _timer.Interval = LevelTwoPenaltyTime;
-            }
-        }
-
-        private async void NavigateToNextLevel()
-        {
-            // Save current count seconds
-            Preferences.Set("current_count_seconds", CountSeconds);
-            // Save current timer text
-            Preferences.Set("current_timer", TimerText);
-
-            using (UserDialogs.Instance.Loading("LOADING LEVEL 3"))
-            {
-                _timer.Stop();
-
-                await Task.Delay(delayTime);
-
-                await Navigation.PushAsync(new LevelThreePage());
             }
         }
     }

@@ -189,53 +189,6 @@
                                 <x:String>D. Following employees into restricted areas</x:String>
                             </Picker.Items>
                         </Picker>
-                        <Label
-                            FontAttributes="Bold"
-                            FontFamily="{StaticResource HeaderFont}"
-                            FontSize="30"
-                            HorizontalTextAlignment="Center"
-                            Text="Bonus Question (Optional)"
-                            VerticalTextAlignment="Center" />
-                        <Label
-                            FontAttributes="Italic"
-                            FontFamily="{StaticResource NormalFont}"
-                            FontSize="15"
-                            HorizontalTextAlignment="Center"
-                            Text="Bonus Questions reset the timer to 30 mins for the next level if the answer is correct"
-                            VerticalTextAlignment="Center" />
-                        <Label
-                            FontAttributes="Italic"
-                            FontFamily="{StaticResource NormalFont}"
-                            FontSize="15"
-                            HorizontalTextAlignment="Center"
-                            Text="Once started their is no turning back 😈"
-                            VerticalTextAlignment="Center" />
-                        <control:Divider HorizontalOptions="CenterAndExpand" />
-                        <Label LineBreakMode="WordWrap">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span
-                                        FontSize="22"
-                                        Text="1. "
-                                        TextColor="{StaticResource PrimaryColor}" />
-                                    <Span
-                                        FontFamily="{StaticResource NormalFont}"
-                                        FontSize="18"
-                                        Text="Which person is known as the World's Most Famous Hacker?" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Picker
-                            Title="Select your Answer"
-                            BackgroundColor="Transparent"
-                            SelectedItem="{Binding BonusQuestionOptions}">
-                            <Picker.Items>
-                                <x:String>A. Stu Sjouwerman</x:String>
-                                <x:String>B. Kevin Mitnick</x:String>
-                                <x:String>C. Matthew Steward</x:String>
-                                <x:String>D. All of the above</x:String>
-                            </Picker.Items>
-                        </Picker>
                     </StackLayout>
                 </ScrollView>
             </StackLayout>

@@ -19,33 +19,6 @@ namespace HackerRun.Shared.ViewModels
 
         private void ExecuteAppearingCommand()
         {
-            var IsUserFailedBefore = Preferences.Get("FailedStatus", true);
-
-            var UserGotBonusQuestion = Preferences.Get("GotBonusQuestion", true);
-
-            if (IsUserFailedBefore)
-            {
-                // Increase timer speed
-                _timer.Interval = LevelTwoPenaltyTime;
-                DisplayCounter();
-            }
-
-            if (IsUserFailedBefore && UserGotBonusQuestion)
-            {
-                // users who got the bonus question correct
-                _timer.Interval = NormalTimerInterval;
-                DisplayCounter();
-            }
-            else
-            {
-                // Increase timer speed
-                _timer.Interval = LevelTwoPenaltyTime;
-                DisplayCounter();
-            }
-        }
-
-        private void DisplayCounter()
-        {
             // Get previous count seconds
             var currentCountSeconds = Preferences.Get("current_count_seconds", CountSeconds);
             // Get previous timer text
@@ -201,7 +174,6 @@ namespace HackerRun.Shared.ViewModels
             string correctQuestionEightAnswer = "A. Content, Context, User";
             string correctQuestionNineAnswer = "D. All of The Above";
             string correctQuestionTenAnswer = "A. Paper Wrappers (Ketchup Packets)";
-
 
             if (QuestionOne == correctQuestionOneAnswer && QuestionTwoOptions == correctQuestionTwoAnswer && QuestionThreeOptions == correctQuestionThreeAnswer && QuestionFourOptions == correctQuestionFourAnswer && QuestionFiveOptions == correctQuestionFiveAnswer && QuestionSixOptions == correctQuestionSixAnswer && QuestionSevenOptions == correctQuestionSevenAnswer && QuestionEightOptions == correctQuestionEightAnswer && QuestionNineOptions == correctQuestionNineAnswer && QuestionTenOptions == correctQuestionTenAnswer)
             {

@@ -36,8 +36,6 @@ namespace HackerRun.Shared.ViewModels
 
         public BaseViewModel()
         {
-            bool IsUserFailedBefore = Preferences.Get("ErrorStatus", false);
-
             // Adds interval to seconds
             _timer.Interval = NormalTimerInterval;
             _timer.Elapsed += TimerElapsedEvent;
