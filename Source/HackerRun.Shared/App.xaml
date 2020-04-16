@@ -69,6 +69,12 @@
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
                 <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
             </Style>
+
+            <Style x:Key="ListLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

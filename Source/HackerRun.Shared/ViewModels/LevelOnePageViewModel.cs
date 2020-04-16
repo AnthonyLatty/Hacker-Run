@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Acr.UserDialogs;
 using HackerRun.Shared.Views.Levels;
 using Xamarin.Essentials;
@@ -13,7 +12,6 @@ namespace HackerRun.Shared.ViewModels
         private Command _navigateToLevelTwoCommand;
         public Command NavigateToLevelTwoCommand => _navigateToLevelTwoCommand ?? (_navigateToLevelTwoCommand = new Command(ExecuteLevelTwoNavigation, CanExecuteNavigateToLevelTwoCommand));
 
-        
         public LevelOnePageViewModel(INavigation navigation)
         {
             Navigation = navigation;
@@ -61,10 +59,9 @@ namespace HackerRun.Shared.ViewModels
         {
             if (_timerState == TimerState.STOPPED)
             {
-                CountSeconds = 1800;
+                CountSeconds = OriginalTime;
                 _timer.Start();
                 _timerState = TimerState.RUNNING;
-                RunTimerCountDown();
                 TimerText = DisplayTimeFormat();
             }
         }
@@ -90,9 +87,8 @@ namespace HackerRun.Shared.ViewModels
                 using (UserDialogs.Instance.Loading("LOADING LEVEL 2"))
                 {
                     _timer.Stop();
-                    _gameplayLevelStatus = GameplayLevelStatus.LevelOneCompleted;
 
-                    await Task.Delay(TimeSpan.FromSeconds(delayTime));
+                    await Task.Delay(delayTime);
 
                     await Navigation.PushAsync(new LevelTwoPage());
                 }
@@ -100,6 +96,9 @@ namespace HackerRun.Shared.ViewModels
             else
             {
                 UserDialogs.Instance.Alert("One or more of your response is incorrect, hurry up and check your answers before time runs out ⏰", "Oops 🤕", "Ok");
+
+                // Increase timer speed
+                _timer.Interval = LevelOnePenaltyTime;
             }
         }
     }

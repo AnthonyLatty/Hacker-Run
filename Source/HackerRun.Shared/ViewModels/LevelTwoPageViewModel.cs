@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Acr.UserDialogs;
 using HackerRun.Shared.Views.Levels;
 using Xamarin.Essentials;
@@ -32,36 +31,133 @@ namespace HackerRun.Shared.ViewModels
             if (_timerState == TimerState.STOPPED)
             {
                 _timer.Start();
-                _timerState = TimerState.RUNNING;
-                RunTimerCountDown();
                 TimerText = DisplayTimeFormat();
             }
         }
 
+        #region Public Properties
+        private string _questionOneOptions;
+        public string QuestionOneOptions
+        {
+            get => _questionOneOptions;
+            set
+            {
+                _questionOneOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionTwoOptions;
+        public string QuestionTwoOptions
+        {
+            get => _questionTwoOptions;
+            set
+            {
+                _questionTwoOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionThreeOptions;
+        public string QuestionThreeOptions
+        {
+            get => _questionThreeOptions;
+            set
+            {
+                _questionThreeOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionFourOptions;
+        public string QuestionFourOptions
+        {
+            get => _questionFourOptions;
+            set
+            {
+                _questionFourOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionFiveOptions;
+        public string QuestionFiveOptions
+        {
+            get => _questionFiveOptions;
+            set
+            {
+                _questionFiveOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _questionSixOptions;
+        public string QuestionSixOptions
+        {
+            get => _questionSixOptions;
+            set
+            {
+                _questionSixOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+
+        private string _bonusQuestionOptions;
+        public string BonusQuestionOptions
+        {
+            get => _bonusQuestionOptions;
+            set
+            {
+                _bonusQuestionOptions = value;
+                OnPropertyChanged();
+                NavigateToLevelThreeCommand.ChangeCanExecute();
+            }
+        }
+        #endregion
+
         private bool CanExecuteNavigateToLevelThreeCommand()
         {
-            // Add validation check here for each control in level 2
-            return true;
+            return !string.IsNullOrEmpty(_questionOneOptions) && !string.IsNullOrEmpty(_questionTwoOptions) && !string.IsNullOrEmpty(_questionThreeOptions) && !string.IsNullOrEmpty(_questionFourOptions) && !string.IsNullOrEmpty(_questionFiveOptions) && !string.IsNullOrEmpty(_questionSixOptions);
         }
 
         private async void ExecuteLevelThreeNavigation()
         {
-            // Do final checks here also to ensure the values passed from the CanExecuteNavigateToLevelThreeCommand method is actually true
+            string correctQuestionOne = "B. Encryption";
+            string correctQuestionTwo = "A. Social Engineers";
+            string correctQuestionThree = "A. To gain vital personal information";
+            string correctQuestionFour = "C. Act first and think later";
+            string correctQuestionFive = "D. All of the above";
+            string correctQuestionSix = "D. Following employees into restricted areas";
 
-
-            // Save current count seconds
-            Preferences.Set("current_count_seconds", CountSeconds);
-            // Save current timer text
-            Preferences.Set("current_timer", TimerText);
-
-            using (UserDialogs.Instance.Loading("LOADING LEVEL 3"))
+            // Validation without bonus question
+            if (QuestionOneOptions == correctQuestionOne && QuestionTwoOptions == correctQuestionTwo && QuestionThreeOptions == correctQuestionThree && QuestionFourOptions == correctQuestionFour && QuestionFiveOptions == correctQuestionFive && QuestionSixOptions == correctQuestionSix)
             {
-                _timer.Stop();
-                _gameplayLevelStatus = GameplayLevelStatus.LevelTwoCompleted;
+                // Save current count seconds
+                Preferences.Set("current_count_seconds", CountSeconds);
+                // Save current timer text
+                Preferences.Set("current_timer", TimerText);
 
-                await Task.Delay(TimeSpan.FromSeconds(delayTime));
+                using (UserDialogs.Instance.Loading("LOADING LEVEL 3"))
+                {
+                    _timer.Stop();
 
-                await Navigation.PushAsync(new LevelThreePage());
+                    await Task.Delay(delayTime);
+
+                    await Navigation.PushAsync(new LevelThreePage());
+                }
+            }
+            else
+            {
+                UserDialogs.Instance.Alert("One or more of your response is incorrect, hurry up and check your answers before time runs out ⏰", "Oops 🤕", "Ok");
+
+                // Increase timer speed
+                _timer.Interval = LevelTwoPenaltyTime;
             }
         }
     }
